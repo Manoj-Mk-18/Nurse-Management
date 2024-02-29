@@ -1,0 +1,61 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link rel="stylesheet" href="/Css/style.css" />
+  <body>
+    
+    <h2> CRUD Operation </h2>
+    <form method="post" action="/">
+     <input type="text"  placeholder=" Search here..." name="search" class="inp">
+     <button type="submit" id="b1"> Search</button>
+     </form>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th> ID </th>
+          <th> Name </th>
+          <th> License </th>
+          <th> DOB </th>
+          <th> Age </th>
+          <th> Edit </th>
+          <th> Delete </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each rows}}
+          <tr>
+            <td> {{this.ID}} </td>
+            <td> {{this.NAME}} </td>
+            <td> {{this.LICENSE}} </td>
+            <td> {{this.DOB}}</td>
+            <td> {{this.AGE}}</td>
+            <td> <a href="/edituser/{{this.ID}}" class="edit"> Edit </a> </td>
+            <td><a
+                onclick="return confirm('Are You Sure?')"
+                href="/deleteuser/{{this.ID}}"
+                class="delete">
+                Delete </a></td>
+
+          </tr>
+        {{/each}}
+        
+          
+   
+      </tbody>
+
+    </table>
+        <div class="add">
+        <a href="/adduser"> Add User </a> 
+        </div>
+      
+    
+   
+
+  </body>
+
+</html>
